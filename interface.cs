@@ -1,34 +1,31 @@
 interface IGeoObject
 {
-   public double Coord_X {  set; }
-   public double Coord_Y {  set; }
-   public string Name { set; }
-   public  string Description { set; }
-   void I_Info(){}
-
-    
-
+    public double Coord_X {  set; get; }
+    public double Coord_Y {  set;get; }
+    public string Name { set; get; }
+    public  string Description { set; get; }
+    void I_Info();
 }
 
 class River:IGeoObject
 
 {
-     double coord_X;
-     double coord_Y;
-     double speed;
-     double length;
-     string name;
-     string description;
-    public double Coord_X { set { coord_X = value; } }
-    public double Coord_Y { set { coord_Y = value; } }
-    public double Speed {  set { speed = value; } }
-    public double Length { set { length = value; } }
-    public string Name {  set { name = value; } }
-    public string Description {  set { description = value; } }
+    double coord_X;
+    double coord_Y;
+    double speed;
+    double length;
+    string name;
+    string description;
+    public double Coord_X { set { coord_X = value; } get { return coord_X; } }
+    public double Coord_Y { set { coord_Y = value; } get { return coord_Y; } }
+    public double Speed {  set { speed = value; } get { return speed; } }
+    public double Length { set { length = value; } get { return length; } }
+    public string Name {  set { name = value; } get { return name; } }
+    public string Description {  set { description = value; } get { return description; } }
 
-     void IGeoObject.I_Info()
+    void IGeoObject.I_Info()
     {
-        Console.WriteLine($"River name: {name}, river coordinates: ({coord_X};{coord_Y}) speed: {speed}м/с, length: {length}, description: {description} ");
+        Console.WriteLine($"River name: {Name}, river coordinates: ({Coord_X};{Coord_Y}) speed: {Speed}м/с, length: {Length}, description: {Description} ");
     }
     
 
@@ -36,21 +33,21 @@ class River:IGeoObject
 
 class Mountain: IGeoObject
 {
-     double coord_X;
-     double coord_Y;
-     double highestPoint;
-     string name;
-     string description;
+    double coord_X;
+    double coord_Y;
+    double highestPoint;
+    string name;
+    string description;
     
-    public double Coord_Y {  set { coord_Y = value; } }
-    public double Coord_X { set { coord_X = value; } }
-    public double HighestPoint {  set { highestPoint = value; } }
-    public string Name {  set { name = value; } }
-    public string Description {  set { description = value; } }
+    public double Coord_Y {  set { coord_Y = value; } get { return coord_Y; } }
+    public double Coord_X { set { coord_X = value; } get { return coord_X; } }
+    public double HighestPoint {  set { highestPoint = value; } get { return highestPoint; } }
+    public string Name {  set { name = value; } get { return name; } }
+    public string Description {  set { description = value; } get { return description; } }
 
     void IGeoObject.I_Info()
     {
-        Console.WriteLine($"Mountain name: {name}, mountain coordinates: ({coord_X};{coord_Y}), highest point: {highestPoint}, description: {description} ");
+        Console.WriteLine($"Mountain name: {Name}, mountain coordinates: ({Coord_X};{Coord_Y}), highest point: {HighestPoint}, description: {Description} ");
     }
 
 }
